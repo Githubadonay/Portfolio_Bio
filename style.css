@@ -121,7 +121,7 @@ a {
   bottom: 32px;
   left: 50%;
   transform: translate(-50%);
-  animation: headerScrollAnimate 1000ms infinite alternate-reverse;/* connects to the animation, runns at a 1000ms timer, does it infinite amount of times and goes back and does it agian */
+  animation: headerScrollAnimate 1000ms infinite alternate-reverse; /* connects to the animation, runns at a 1000ms timer, does it infinite amount of times and goes back and does it agian */
 }
 @keyframes headerScrollAnimate {
   0% {
@@ -130,4 +130,109 @@ a {
   100% {
     bottom: 24px;
   }
+}
+
+/* About */
+
+.about__row {
+  display: flex;
+  gap: 128px;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__title {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.about__text__subtitle {
+  font-size: 32px;
+}
+
+.about__text__para {
+  line-height: 24px;
+  max-width: 400px;
+}
+
+.about__skills {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__skills__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.about__skill {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.about__skill__image {
+  width: 100%;
+  height: 100%;
+  transition: 200ms ease;
+}
+.about__skill__name {
+  font-size: 12px;
+  opacity: 0;
+  transition: 300ms ease;
+}
+
+.about__skill:hover .about__skill__name {
+  opacity: 1;
+}
+.about__skill:hover .about__skill__image {
+  scale: 0.9;
+}
+
+.about__image__wrapper {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.about__image__wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--primary);
+  top: 24px;
+  right: 24px;
+  z-index: 1;
+}
+.about__image__wrapper::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--primary);
+    bottom: 24px;
+    left: 24px;
+    z-index: 3;
+  }
+.about__image {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: relative;
 }
