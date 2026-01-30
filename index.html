@@ -443,7 +443,7 @@
                 <span>Tesfamichaeladonay@gmail.com</span>
               </a>
             </div>
-            <form class="contact__form" onsubmit="sendEmail()" >
+            <form class="contact__form" onsubmit="sendEmail(event)">
               <div class="form__item">
                 <label class="form__item__label">Name</label>
                 <input
@@ -456,9 +456,9 @@
               <div class="form__item">
                 <label class="form__item__label">Email</label>
                 <input
+                  required
                   type="email"
                   name="email"
-                  required
                   class="form__item__input"
                 />
               </div>
@@ -472,7 +472,7 @@
               </div>
               <button class="contact__form__submit">
                 Send
-                <div class="contact__form__loading">
+                <div class="contact__form__loading hidden">
                   <i
                     class="fa-solid fa-spinner contact__form__loading__icon"
                   ></i>

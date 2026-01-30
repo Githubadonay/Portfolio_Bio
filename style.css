@@ -61,6 +61,30 @@ a {
 #projects {
   position: relative;
 }
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeInAnimate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpAnimate {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}
 
 /* Nav Section */
 .nav {
@@ -69,6 +93,7 @@ a {
   height: 80px;
   z-index: 10;
   width: 100%;
+  animation: fadeInAnimate 1000ms;
 }
 
 .nav__container {
@@ -221,22 +246,31 @@ a {
 .header__span {
   font-size: 18px;
   font-weight: 600;
+  animation: slideUpAnimate 500ms;
 }
 .header__title {
   font-size: 96px;
   font-weight: 600;
   line-height: 100px;
   color: var(--primary);
+  animation: slideUpAnimate 500ms 100ms backwards;
 }
 .header__subtitle {
   font-size: 44px;
   font-weight: 600;
   line-height: 44px;
+  animation: slideUpAnimate 500ms 150ms backwards;
+}
+.header__about{
+  margin-top: 8px;
+  font-size: 18px;
+  animation: slideUpAnimate 500ms 200ms backwards;
 }
 .header__links {
   display: flex;
   gap: 16px;
   margin-top: 16px;
+  animation: slideUpAnimate 500ms 300ms backwards;
 }
 
 .header__scroll {
@@ -246,7 +280,8 @@ a {
   bottom: 32px;
   left: 50%;
   transform: translate(-50%);
-  animation: headerScrollAnimate 1000ms infinite alternate-reverse; /* connects to the animation, runns at a 1000ms timer, does it infinite amount of times and goes back and does it agian */
+  /* animation: fadeInAnimate 500ms 500ms; */
+  animation: fadeInAnimate 500ms 500ms backwards, headerScrollAnimate 1000ms infinite alternate-reverse; /* connects to the animation, runns at a 1000ms timer, does it infinite amount of times and goes back and does it agian */
 }
 @keyframes headerScrollAnimate {
   0% {
@@ -555,7 +590,7 @@ a {
   border-color: var(--primary);
 }
 
-.success{
+.success {
   position: fixed;
   width: 320px;
   background-color: white;
@@ -565,32 +600,36 @@ a {
   border-radius: 4px;
   padding: 20px;
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
-  display: none;
+  transform: translateX(200%);
+  display: flex;
   gap: 16px;
+  transition: 250ms ease;
+}
+.success-open .success {
+  transform: translateX(0%);
 }
 
-.success__icon{
+.success__icon {
   font-size: 28px;
   color: #4bb543;
 }
 
-.success__text{
+.success__text {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.success__text__title{
+.success__text__title {
   font-size: 16px;
   font-weight: 600;
-
 }
 
-.success__text__para{
+.success__text__para {
   font-size: 14px;
 }
 
-.contact__form__loading{
+.contact__form__loading {
   position: absolute;
   top: 0;
   left: 0;
@@ -603,19 +642,17 @@ a {
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  display: none;
 }
-.contact__form__loading__icon{
+.contact__form__loading__icon {
   animation: loadingSpinner 1500ms infinite;
 }
 @keyframes loadingSpinner {
-  0%{
+  0% {
     rotate: 0;
   }
-  100%{
+  100% {
     rotate: 360deg;
   }
-  
 }
 
 /* Footer Section */
@@ -830,14 +867,14 @@ footer {
 
   /* footer section  */
 
-  .footer__row{
+  .footer__row {
     gap: 16px;
   }
   .footer__copyright {
     font-size: 12px;
   }
 
-  .footer__links{
+  .footer__links {
     font-size: 14px;
   }
 }
