@@ -421,6 +421,7 @@ a {
   background-color: white;
 }
 .project__image__wrapper {
+  width: 50%;
   max-width: 100%;
   overflow: hidden;
   border-radius: 8px;
